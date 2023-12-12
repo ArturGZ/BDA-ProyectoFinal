@@ -2,6 +2,8 @@
 # @Fecha         11/12/2023
 # @Descripcion   Creación de loop devices y carpetas empleadas en el proyecto final de BDA 2024-1
 
+export ORACLE_SID=arpeproy
+
 echo "Creando directorio para disk-images"
 mkdir /unam-bda/ProyectoFinal
 mkdir /unam-bda/ProyectoFinal/disk-images
@@ -40,19 +42,99 @@ mkdir /unam-bda/ProyectoFinal/d02
 #/unam-bda/ProyectoFinal/disk-images/diskProy2.img /unam-bda/ProyectoFinal/d02 auto loop 0 0
 
 echo "Creando el resto de directorios empleados en el proyecto"
+
+echo "Creando el directorio para Data File del Sistema"
 #Data Files 1
-mkdir /unam-bda/ProyectoFinal/d03
+if [ -d "/unam-bda/ProyectoFinal/d03" ]; then
+	echo "Directorio de data files del sistema ya existe"
+else
+    mkdir /unam-bda/ProyectoFinal/d03
+    cd /unam-bda/ProyectoFinal/d03
+    mkdir -p ARPEPROY
+    chown -R oracle:oinstall ARPEPROY
+    chmod -R 750 ARPEPROY
+fi;
+
+echo "Creando el directorio para Data File del e-market"
 #Data Files 2
-mkdir /unam-bda/ProyectoFinal/d04
+if [ -d "/unam-bda/ProyectoFinal/d04" ]; then
+	echo "Directorio de data files del e-market ya existe"
+else
+    mkdir /unam-bda/ProyectoFinal/d04
+    cd /unam-bda/ProyectoFinal/d04
+    mkdir -p ARPEPROY
+    chown -R oracle:oinstall ARPEPROY
+    chmod -R 750 ARPEPROY
+fi;
+
+echo "Creando el directorio para Data File de elementos tipo blob"
 #Data File Elementos Tipo Blob
-mkdir /unam-bda/ProyectoFinal/d05
+if [ -d "/unam-bda/ProyectoFinal/d05" ]; then
+	echo "Directorio de data files de elementos tipo blob ya existe"
+else
+    mkdir /unam-bda/ProyectoFinal/d05
+    cd /unam-bda/ProyectoFinal/d05
+    mkdir -p ARPEPROY
+    chown -R oracle:oinstall ARPEPROY
+    chmod -R 750 ARPEPROY
+fi;
+
+echo "Creando el directorio para Archived Redo Logs 1"
 #Archived Redo Log 1
-mkdir /unam-bda/ProyectoFinal/d06
-#Archived Redo Log 2
-mkdir /unam-bda/ProyectoFinal/d07
+if [ -d "/unam-bda/ProyectoFinal/d06" ]; then
+	echo "Directorio de Archived Redo Logs 1 ya existe"
+else
+    mkdir /unam-bda/ProyectoFinal/d06
+    cd /unam-bda/ProyectoFinal/d06
+    mkdir -p ARPEPROY
+    chown -R oracle:oinstall ARPEPROY
+    chmod -R 750 ARPEPROY
+fi;
+
+echo "Creando el directorio para Archived Redo Logs 2"
+#Archived Redo Log 1
+if [ -d "/unam-bda/ProyectoFinal/d07" ]; then
+	echo "Directorio de Archived Redo Logs 2 ya existe"
+else
+    mkdir /unam-bda/ProyectoFinal/d07
+    cd /unam-bda/ProyectoFinal/d07
+    mkdir -p ARPEPROY
+    chown -R oracle:oinstall ARPEPROY
+    chmod -R 750 ARPEPROY
+fi;
+
+echo "Creando el directorio para la FRA"
 #FRA
-mkdir /unam-bda/ProyectoFinal/d08
+if [ -d "/unam-bda/ProyectoFinal/d08" ]; then
+	echo "Directorio de la FRA ya existe"
+else
+    mkdir /unam-bda/ProyectoFinal/d08
+    cd /unam-bda/ProyectoFinal/d08
+    mkdir -p ARPEPROY
+    chown -R oracle:oinstall ARPEPROY
+    chmod -R 750 ARPEPROY
+fi;
+
+echo "Creando el directorio para Backups 1"
 #Backups 1
-mkdir /unam-bda/ProyectoFinal/d09
+if [ -d "/unam-bda/ProyectoFinal/d09" ]; then
+	echo "Directorio de Backups 1 ya existe"
+else
+    mkdir /unam-bda/ProyectoFinal/d09
+    cd /unam-bda/ProyectoFinal/d09
+    mkdir -p ARPEPROY
+    chown -R oracle:oinstall ARPEPROY
+    chmod -R 750 ARPEPROY
+fi;
+
+echo "Creando el directorio para Backups 2"
 #Backups 2
-mkdir /unam-bda/ProyectoFinal/d10
+if [ -d "/unam-bda/ProyectoFinal/d10" ]; then
+	echo "Directorio de Backups 2 ya existe"
+else
+    mkdir /unam-bda/ProyectoFinal/d10
+    cd /unam-bda/ProyectoFinal/d10
+    mkdir -p ARPEPROY
+    chown -R oracle:oinstall ARPEPROY
+    chmod -R 750 ARPEPROY
+fi;
