@@ -10,8 +10,6 @@ connect sys as sysdba
 create database arpeproy
     user sys identified by arpeproy1
     user system identified by arpeproy1
-    user sysbackup identified by arpeproy1
-    user sysmarket identified by arpeproy1
     logfile group 1(
         '',
         '/unam-bda/ProyectoFinal/d01/app/oradata/ARPEPROY/redo01b.log',
@@ -34,7 +32,7 @@ create database arpeproy
     sysaux datafile '/unam-bda/ProyectoFinal/d03/app/oradata/ARPEPROY/sysaux01.dbf'
         size 550m reuse autoextend on next 1024k maxsize unlimited
     default tablespace users
-        datafile '/unam-bda/ProyectoFinal/d03/app/oradata/ARPEPROY/users01.dbf'
+        datafile '/unam-bda/ProyectoFinal/d04/app/oradata/ARPEPROY/users01.dbf'
         size 500m reuse autoextend on maxsize unlimited
     default temporary tablespace tempts1
         tempfile '/unam-bda/ProyectoFinal/d03/app/oradata/ARPEPROY/temp01.dbf'
