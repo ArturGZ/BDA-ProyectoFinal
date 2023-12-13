@@ -14,7 +14,8 @@ Prompt Configurando el dominio de la base de datos
 alter system set db_domain='fi.unam' scope=spfile;
 
 Prompt Configurando instancia en modo compartido
-alter system set shared_servers=4 scope=spfile;
+-- 1 shared proccess por cada 10 conexiones
+alter system set shared_servers=10 scope=spfile;
 alter system set dispatchers='(dispatchers=4)(protocol=tcp)' scope=spfile;
 
 Prompt Actualizando configuración del listener
