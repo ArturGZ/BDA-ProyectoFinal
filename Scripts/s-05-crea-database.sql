@@ -2,47 +2,43 @@
 -- @Fecha         12/12/2023
 -- @Descripcion   Creación de la base de datos para el proyecto final BDA
 
-Prompt Conectado como usuario SYS
-connect sys as sysdba
+-- ORACLE_SID=arpeproy
 
-prompt Iniciando una instancia en modo nomount
+Prompt Conectado como usuario SYS
+connect sys/hola1234! as sysdba
+
+Prompt Iniciando una instancia en modo nomount
 startup nomount
 
 whenever sqlerror exit rollback;
 
 Prompt Ejecutando la instrucción Create Database
+
 create database arpeproy
-    user sys identified by arpeproy1
-    user system identified by arpeproy1
-    logfile group 1(
-        '',
-        '/unam-bda/ProyectoFinal/d01/ARPEPROY/redo01b.log',
-        '/unam-bda/ProyectoFinal/d02/ARPEPROY/redo01c.log') size 100m blocksize 512
-    group 2 (
-        '',
-        '/unam-bda/ProyectoFinal/d01/ARPEPROY/redo02b.log',
-        '/unam-bda/ProyectoFinal/d02/ARPEPROY/redo02c.log') size 100m blocksize 512
-    group 3(
-        '',
-        '/unam-bda/ProyectoFinal/d01/ARPEPROY/redo03b.log',
-        '/unam-bda/ProyectoFinal/d02/ARPEPROY/redo03c.log') size 100m blocksize 512
+    user sys identified by arpeproy
+    user system identified by arpeproy
+    logfile group 1 size 50m blocksize 512,
+    group 2 size 50m blocksize 512,
+    group 3 size 50m blocksize 512
+    maxloghistory 1
     maxlogfiles 9
-    maxlogs members 3
-    maxdatafile 1024
+    maxlogmembers 3
+    maxdatafiles 1024
     character set AL32UTF8
+    national character set AL16UTF16
     extent management local
     datafile '/unam-bda/ProyectoFinal/d03/ARPEPROY/system01.dbf'
-        size 700m reuse autoextend on next 1024k maxsize unlimited
+        size 300m reuse autoextend on next 1024k maxsize unlimited
     sysaux datafile '/unam-bda/ProyectoFinal/d03/ARPEPROY/sysaux01.dbf'
-        size 550m reuse autoextend on next 1024k maxsize unlimited
-    default tablespace users
+        size 250m reuse autoextend on next 1024k maxsize unlimited
+    default tablespace users_invitados
         datafile '/unam-bda/ProyectoFinal/d04/ARPEPROY/users01.dbf'
-        size 500m reuse autoextend on maxsize unlimited
-    default temporary tablespace tempts1
+            size 200m reuse autoextend off
+    default temporary tablespace tempts1 blocksize 8192
         tempfile '/unam-bda/ProyectoFinal/d03/ARPEPROY/temp01.dbf'
-        size 20m reuse autoextend on next 640k maxsize unlimited
+        size 70m reuse autoextend on next 10m maxsize 512m blocksize 8192
     undo tablespace undots1
         datafile '/unam-bda/ProyectoFinal/d03/ARPEPROY/undots01.dbf'
-        size 200m reuse autoextend on next 512k maxsize unlimited;
+        size 250m reuse autoextend off blocksize 8192;
 
-Prompt Base de Datos Creada
+Prompt Base de Datos Creada!!

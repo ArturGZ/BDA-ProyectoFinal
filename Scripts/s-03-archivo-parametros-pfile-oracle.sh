@@ -13,15 +13,15 @@ fi;
 
 echo \
 "db_name='${ORACLE_SID}'
-memory_target = 2024M
-db_recovery_file_dest_size = 2252M
-db_recovery_file_dest = /unam-bda/ProyectoFinal/d08
-db_flashback_retention_target = 60
-log_archive_max_processes = 4
-log_archive_format = arch_%t_%s_%r.arc
-log_archive_trace = 12
-log_archive_dest_1= 'LOCATION = USE_DB_RECOVERY_FILE_DEST MANDATORY'
-log_archive_min_succeed_dest = 1
+memory_target=768M
+db_recovery_file_dest_size=2252M
+db_recovery_file_dest=/unam-bda/ProyectoFinal/d08
+db_flashback_retention_target=60
+log_archive_max_processes=4
+log_archive_format=arch_%t_%s_%r.arc
+log_archive_trace=12
+log_archive_dest_1='LOCATION=USE_DB_RECOVERY_FILE_DEST MANDATORY'
+log_archive_min_succeed_dest=1
 " > ${pfile}
 
 echo "Listo!"
