@@ -5,8 +5,12 @@
 export ORACLE_SID=arpeproy
 
 echo "Creando directorio para disk-images"
-mkdir /unam-bda/ProyectoFinal
-mkdir /unam-bda/ProyectoFinal/disk-images
+#disk-image
+if [ -d "/unam-bda/ProyectoFinal/disk-images" ]; then
+	echo "Directorio de data files del e-market ya existe"
+else
+    mkdir -p /unam-bda/ProyectoFinal/disk-images
+fi;
 
 echo "Ingresando al directorio creado"
 cd /unam-bda/ProyectoFinal/disk-images
@@ -32,10 +36,29 @@ mkfs.ext4 diskProy1.img
 mkfs.ext4 diskProy2.img
 
 echo "Creando los directorios donde los dispositivos serán montados"
+echo "Creando el directorio para los redo logs 1"
 #Redo Log 1
-mkdir /unam-bda/ProyectoFinal/d01
+if [ -d "/unam-bda/ProyectoFinal/d01" ]; then
+	echo "Directorio de redo logs 1 ya existe"
+else
+    mkdir /unam-bda/ProyectoFinal/d01
+    cd /unam-bda/ProyectoFinal/d01
+    mkdir -p ARPEPROY
+    chown -R oracle:oinstall ARPEPROY
+    chmod -R 750 ARPEPROY
+fi;
+
+echo "Creando el directorio para los redo logs 2"
 #Redo Log 2
-mkdir /unam-bda/ProyectoFinal/d02
+if [ -d "/unam-bda/ProyectoFinal/d02" ]; then
+	echo "Directorio de redo logs 2 ya existe"
+else
+    mkdir /unam-bda/ProyectoFinal/d02
+    cd /unam-bda/ProyectoFinal/d02
+    mkdir -p ARPEPROY
+    chown -R oracle:oinstall ARPEPROY
+    chmod -R 750 ARPEPROY
+fi;
 
 #Agregar las siguientes líneas al final del archivo /etc/fstab
 #/unam-bda/ProyectoFinal/disk-images/diskProy1.img /unam-bda/ProyectoFinal/d01 auto loop 0 0
@@ -138,3 +161,6 @@ else
     chown -R oracle:oinstall ARPEPROY
     chmod -R 750 ARPEPROY
 fi;
+
+echo "Mostrando directorios para Proyecto Final"
+ls -l /unam-bda/ProyectoFinal/d*

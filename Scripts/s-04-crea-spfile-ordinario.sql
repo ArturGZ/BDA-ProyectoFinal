@@ -2,7 +2,6 @@
 --@Fecha         12/12/2023
 --@Descripcion   Creación de SPFILE para el proyecto a partir del pfile creado.
 
-whenever sqlerror exit rollback;
 
 Prompt conectando como SYS empleando archivo de passwords
 connect sys as sysdba
