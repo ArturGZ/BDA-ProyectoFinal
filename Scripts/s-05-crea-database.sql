@@ -2,11 +2,15 @@
 -- @Fecha         12/12/2023
 -- @Descripcion   Creación de la base de datos para el proyecto final BDA
 
-whenever sqlerror exit rollback;
-
 Prompt Conectado como usuario SYS
 connect sys as sysdba
 
+prompt Iniciando una instancia en modo nomount
+startup nomount
+
+whenever sqlerror exit rollback;
+
+Prompt Ejecutando la instrucción Create Database
 create database arpeproy
     user sys identified by arpeproy1
     user system identified by arpeproy1
@@ -40,3 +44,5 @@ create database arpeproy
     undo tablespace undots1
         datafile '/unam-bda/ProyectoFinal/d03/ARPEPROY/undots01.dbf'
         size 200m reuse autoextend on next 512k maxsize unlimited;
+
+Prompt Base de Datos Creada
