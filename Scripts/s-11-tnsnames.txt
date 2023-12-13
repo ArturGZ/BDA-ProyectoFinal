@@ -1,0 +1,36 @@
+# tnsnames.ora Se encuentra en la ruta:
+# /u01/app/oracle/product/19.3.0/dbhome_1/network/admin/tnsnames.ora
+
+
+ARPEPROY_DEDICATED =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = pc-apq.fi.unam)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = arpeproy.fi.unam)
+    )
+  )
+
+ARPEPROY_SHARED =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = pc-apq.fi.unam)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = arpeproy.fi.unam)
+      (SERVER=SHARED)
+    )
+  )
+
+ARPEPROY_POOLED =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = pc-apq.fi.unam)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = arpeproy.fi.unam)
+      (SERVER=POOLED)
+    )
+  )
