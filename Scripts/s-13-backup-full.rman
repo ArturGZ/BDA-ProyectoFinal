@@ -1,6 +1,6 @@
 run {
     shutdown immediate;
     startup mount;
-    backup database;
+    backup database plus archivelog;
     alterdatabase open;
 }
