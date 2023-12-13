@@ -5,7 +5,7 @@
 
 echo "Creando archivo de parámetros"
 export ORACLE_SID=arpeproy
-pfile=$ORACLE_HOME/bds/init${ORACLE_SID}.ora
+pfile="${ORACLE_HOME}/dbs/init${ORACLE_SID}.ora"
 
 if [ -f "${pfile}" ]; then
     read -p "El archivo ${pfile} ya existe,, [Enter] para sobreescribir"
@@ -22,9 +22,9 @@ log_archive_format = arch_%t_%s_%r.arc
 log_archive_trace = 12
 log_archive_dest_1= 'LOCATION = USE_DB_RECOVERY_FILE_DEST MANDATORY'
 log_archive_min_succeed_dest = 1
-" > $pfile
+" > ${pfile}
 
 echo "Listo!"
 echo "Comprobando la existencia y contenido del PFILE"
 echo ""
-cat $pfile
+cat ${pfile}

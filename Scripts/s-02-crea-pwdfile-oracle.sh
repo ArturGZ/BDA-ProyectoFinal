@@ -17,8 +17,7 @@ orapwd \
   FILE='${ORACLE_HOME}/dbs/orapw${ORACLE_SID}' \
   FORMAT=12.2 \
   SYS=y \
-  SYSBACKUP=y \
-  SYSMARKET=y 
+  SYSBACKUP=y 
 
 echo "comprobando la creación del archivo"
 ls -l ${ORACLE_HOME}/dbs/orapwarpeproy
