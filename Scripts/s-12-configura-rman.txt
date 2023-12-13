@@ -1,0 +1,25 @@
+Ingresar a RMAN con usuario oracle : 
+rman
+
+Nos conectamos a la base:
+connect target "sysbackup@arpeproy_dedicated as sysbackup"
+
+Mostramosconfiguracion inicaial con:
+show all;
+
+Configuramos parametros:
+configure device type disk parallelism 3;
+configure default device type to disk;
+
+configure channel 1 device type disk clear;
+configure channel 2 device type disk format '/unam-bda/ProyectoFinal/d09/%d/backups/%u';
+configure channel 3 device type disk format '/unam-bda/ProyectoFinal/d10/%d/backups/%u';
+
+Activamos optimizacion
+configure backup optimization on;
+
+Creamos el backup:
+backup database;
+
+Desde consola de linux, para ejecutar script rman:
+rman target sys@arpeproy_dedicated @s-13-backup-full.rman

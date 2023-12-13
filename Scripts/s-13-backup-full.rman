@@ -1,0 +1,6 @@
+run {
+    shutdown immediate;
+    startup mount;
+    backup database;
+    alterdatabase open;
+}
