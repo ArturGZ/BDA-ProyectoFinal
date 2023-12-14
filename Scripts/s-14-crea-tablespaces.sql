@@ -1,8 +1,11 @@
 --@Autores       J. Miguel Arroyo Quiroz, Arturo Perez Quintana
 --@Fecha         13/12/2023
 --@Descripcion   Crea los tablespaces
+
 whenever sqlerror exit rollback;
 connect sys/hola1234! as sysdba;
+
+-- Ejecutar primero s-14-0-crea-wallet.sql para habilitar la encriptacion de TS tarjetas
 
 declare
   v_count number;
@@ -118,7 +121,8 @@ prompt Se crea tablespace temporal
 create temporary tablespace usuarios_temp_tbs
   tempfile '/unam-bda/ProyectoFinal/d03/ARPEPROY/temp1.dbf' size 200m
     reuse autoextend on next 10m maxsize 512m blocksize 8192
-  blocksize 8192;
+  blocksize 8192
+  encryption using 'aes256' encrypt;
 
 
 -- Para activar retention guarantee:
