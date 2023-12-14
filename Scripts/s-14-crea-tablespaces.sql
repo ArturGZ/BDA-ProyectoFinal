@@ -116,14 +116,14 @@ create tablespace usuarios_tarjetas_tbs
   extent management local autoallocate
   segment space management auto
   blocksize 8192;
+  --encryption using 'aes256' encrypt;
 
 prompt Se crea tablespace temporal
 create temporary tablespace usuarios_temp_tbs
   tempfile '/unam-bda/ProyectoFinal/d03/ARPEPROY/temp1.dbf' size 200m
     reuse autoextend on next 10m maxsize 512m blocksize 8192
-  blocksize 8192
-  encryption using 'aes256' encrypt;
-
+  blocksize 8192;
+  
 
 -- Para activar retention guarantee:
 -- alter tablespace usuarios_temp_tbs retention guarantee;
