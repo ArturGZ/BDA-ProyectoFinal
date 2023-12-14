@@ -14,9 +14,9 @@ alter database backup controlfile to trace as '/home/oracle/backups/controlfile.
 
 shutdown
 
-cp /unam-bda/ProyectoFinal/d08/ARPEPROY/controlfile/o1_mf_lqlldkwo_.ctl /unam-bda/ProyectoFinal/d01/ARPEPROY/control02.ctl
+cp /unam-bda/ProyectoFinal/d08/ARPEPROY/controlfile/o1_mf_lqlhd62x_.ctl /unam-bda/ProyectoFinal/d01/ARPEPROY/control02.ctl
 
-cp /unam-bda/ProyectoFinal/d08/ARPEPROY/controlfile/o1_mf_lqlldkwo_.ctl /unam-bda/ProyectoFinal/d02/ARPEPROY/control03.ctl
+cp /unam-bda/ProyectoFinal/d08/ARPEPROY/controlfile/o1_mf_lqlhd62x_.ctl /unam-bda/ProyectoFinal/d02/ARPEPROY/control03.ctl
 
 startup nomount
 

@@ -17,35 +17,35 @@ declare
 begin
   select count(*) into v_count from dba_tablespaces where tablespace_name=v_tablespace1;
   if v_count > 0 then
-    execute immediate 'drop tablespace '||v_tablespace1||' including contents and datafiles;';
+    execute immediate 'drop tablespace '||v_tablespace1||' including contents and datafiles';
   end if;
   select count(*) into v_count from dba_tablespaces where tablespace_name=v_tablespace2;
   if v_count > 0 then
-    execute immediate 'drop tablespace '||v_tablespace2||' including contents and datafiles;';
+    execute immediate 'drop tablespace '||v_tablespace2||' including contents and datafiles';
   end if;
   select count(*) into v_count from dba_tablespaces where tablespace_name=v_tablespace3;
   if v_count > 0 then
-    execute immediate 'drop tablespace '||v_tablespace3||' including contents and datafiles;';
+    execute immediate 'drop tablespace '||v_tablespace3||' including contents and datafiles';
   end if;
   select count(*) into v_count from dba_tablespaces where tablespace_name=v_tablespace4;
   if v_count > 0 then
-    execute immediate 'drop tablespace '||v_tablespace4||' including contents and datafiles;';
+    execute immediate 'drop tablespace '||v_tablespace4||' including contents and datafiles';
   end if;
   select count(*) into v_count from dba_tablespaces where tablespace_name=v_tablespace5;
   if v_count > 0 then
-    execute immediate 'drop tablespace '||v_tablespace5||' including contents and datafiles;';
+    execute immediate 'drop tablespace '||v_tablespace5||' including contents and datafiles';
   end if;
   select count(*) into v_count from dba_tablespaces where tablespace_name=v_tablespace6;
   if v_count > 0 then
-    execute immediate 'drop tablespace '||v_tablespace6||' including contents and datafiles;';
+    execute immediate 'drop tablespace '||v_tablespace6||' including contents and datafiles';
   end if;
   select count(*) into v_count from dba_tablespaces where tablespace_name=v_tablespace7;
   if v_count > 0 then
-    execute immediate 'drop tablespace '||v_tablespace7||' including contents and datafiles;';
+    execute immediate 'drop tablespace '||v_tablespace7||' including contents and datafiles';
   end if;
   select count(*) into v_count from dba_tablespaces where tablespace_name=v_tablespace8;
   if v_count > 0 then
-    execute immediate 'drop tablespace '||v_tablespace8||' including contents and datafiles;';
+    execute immediate 'drop tablespace '||v_tablespace8||' including contents and datafiles';
   end if;
 
 end;
@@ -53,54 +53,73 @@ end;
 
 
 
-prompt Creando tablespaces del MÓDULO 1 - USUARIOS
-prompt Se crea tablespace para índices
-create tablespace usuarios_indices
-  datafile '/unam-bda/proyecto/m1/d01/app/oracle/oradata/PROYBDA3/u_indices.dbf' size 40m
+prompt Creando tablespaces del módulo subastas
+prompt Se crea tablespace para tablas
+create tablespace subastas_tablas_tbs
+  datafile '/unam-bda/ProyectoFinal/d04/ARPEPROY/subastas_tablas.dbf' size 300m
     autoextend off
-  extent management local autoallocate
-  segment space management auto
-  blocksize 8192;
-
-
-prompt Se crea tablespace para blobs
-create bigfile tablespace usuarios_blobs
-  datafile '/unam-bda/proyecto/m1/d04/app/oracle/oradata/PROYBDA3/u_blobs.dbf' size 1g
-    autoextend off
-  extent management local autoallocate
-  segment space management auto
-  blocksize 8192;
-
-
-prompt Creando tablespaces del MÓDULO 2 - PRESTAMOS
-prompt Se crea tablespace para índices
-create tablespace prestamos_indices
-  datafile '/unam-bda/proyecto/m2/d01/app/oracle/oradata/PROYBDA3/p_indices.dbf' size 70m
-    autoextend off
-  extent management local autoallocate
-  segment space management auto
-  blocksize 8192;
-
-prompt Se crea tablespace para tablas y datos de los registros
-create tablespace prestamos_tablas
-  datafile 
-    '/unam-bda/proyecto/m2/d02/app/oracle/oradata/PROYBDA3/p_tablas.dbf' size 150m autoextend off,
-    '/unam-bda/proyecto/m2/d03/app/oracle/oradata/PROYBDA3/p_tablas.dbf' size 150m autoextend off
   extent management local autoallocate
   segment space management auto
   blocksize 8192;
 
 prompt Se crea tablespace para blobs
-create bigfile tablespace prestamos_blobs
-  datafile '/unam-bda/proyecto/m2/d04/app/oracle/oradata/PROYBDA3/p_blobs.dbf' size 1536m
+create bigfile tablespace subastas_blob_tbs
+  datafile '/unam-bda/ProyectoFinal/d05/ARPEPROY/subastas_blob.dbf' size 2g
     autoextend off
   extent management local autoallocate
   segment space management auto
   blocksize 8192;
-  
-prompt Creando temporary tablespace
-create temporary tablespace prestamos_temp
-  tempfile '/unam-bda/proyecto/m2/d01/app/oracle/oradata/PROYBDA3/p_temp.dbf' size 90m
-    reuse
-    autoextend on next 10m maxsize 140m
+
+prompt Se crea tablespace para indices
+create tablespace subastas_indices_tbs
+  datafile '/unam-bda/ProyectoFinal/d04/ARPEPROY/indices_tablas.dbf' size 70m
+    autoextend off
+  extent management local autoallocate
+  segment space management auto
   blocksize 8192;
+
+
+
+
+prompt Creando tablespaces del módulo usuarios
+prompt Se crea tablespace para tablas
+create tablespace usuarios_tablas_tbs
+  datafile '/unam-bda/ProyectoFinal/d04/ARPEPROY/usuarios_tablas.dbf' size 300m
+    autoextend off
+  extent management local autoallocate
+  segment space management auto
+  blocksize 8192;
+
+prompt Se crea tablespace para índices
+create bigfile tablespace usuarios_blob_tbs
+  datafile '/unam-bda/ProyectoFinal/d05/ARPEPROY/usuarios_blob.dbf' size 1g
+    autoextend off
+  extent management local autoallocate
+  segment space management auto
+  blocksize 8192;
+
+prompt Se crea tablespace para índices
+create tablespace usuarios_indices_tbs
+  datafile '/unam-bda/ProyectoFinal/d04/ARPEPROY/usuarios_indices.dbf' size 70m
+    autoextend off
+  extent management local autoallocate
+  segment space management auto
+  blocksize 8192;
+
+prompt Se crea tablespace para tarjetas
+create tablespace usuarios_tarjetas_tbs
+  datafile '/unam-bda/ProyectoFinal/d04/ARPEPROY/usuarios_tarjetas.dbf' size 80m
+    autoextend off
+  extent management local autoallocate
+  segment space management auto
+  blocksize 8192;
+
+prompt Se crea tablespace temporal
+create temporary tablespace usuarios_temp_tbs
+  tempfile '/unam-bda/ProyectoFinal/d03/ARPEPROY/temp1.dbf' size 200m
+    reuse autoextend on next 10m maxsize 512m blocksize 8192
+  blocksize 8192;
+
+
+-- Para activar retention guarantee:
+-- alter tablespace usuarios_temp_tbs retention guarantee;

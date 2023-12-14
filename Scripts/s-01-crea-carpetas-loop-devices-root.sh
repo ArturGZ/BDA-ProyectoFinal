@@ -145,7 +145,7 @@ if [ -d "/unam-bda/ProyectoFinal/d09" ]; then
 else
     mkdir /unam-bda/ProyectoFinal/d09
     cd /unam-bda/ProyectoFinal/d09
-    mkdir -p ARPEPROY
+    mkdir -p ARPEPROY/backups
     chown -R oracle:oinstall ARPEPROY
     chmod -R 750 ARPEPROY
 fi;
@@ -157,7 +157,7 @@ if [ -d "/unam-bda/ProyectoFinal/d10" ]; then
 else
     mkdir /unam-bda/ProyectoFinal/d10
     cd /unam-bda/ProyectoFinal/d10
-    mkdir -p ARPEPROY
+    mkdir -p ARPEPROY/backups
     chown -R oracle:oinstall ARPEPROY
     chmod -R 750 ARPEPROY
 fi;

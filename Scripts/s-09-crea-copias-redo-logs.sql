@@ -3,6 +3,7 @@
 --@Descripcion   Agrega miembros a los grupos de redo logs
 
 whenever sqlerror exit rollback;
+connect sys/hola1234! as sysdba;
 
 Prompt Agregando 2 miembros al grupo 1
 alter database
