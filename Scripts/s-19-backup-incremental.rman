@@ -1,0 +1,7 @@
+run {
+    shutdown immediate;
+    startup mount;
+    backup as backupset incremental level 0 database plus archivelog;
+    backup as backupset incremental level 1 database plus archivelog;
+    alter database open;
+}

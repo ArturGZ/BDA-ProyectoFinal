@@ -23,3 +23,17 @@ backup database;
 
 Desde consola de linux, para ejecutar script rman:
 rman target sys@arpeproy_dedicated @s-13-backup-full.rman
+
+Para recuperar un datafile desde RMAN;
+connect target 'sysbackup@arpeproy_dedicated as sysbackup'
+list failure;
+advise failure;
+
+restore datafile 5;
+recover datafile 5;
+
+sql 'alter database datafile 5 online';
+
+
+Image copy:
+backup as copy database plus archivelog;

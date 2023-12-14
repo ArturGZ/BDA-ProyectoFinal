@@ -9038,6 +9038,7 @@ insert into admin_usuarios.subasta (subasta_id, fecha_inicio, fecha_cierre, tota
 insert into admin_usuarios.subasta (subasta_id, fecha_inicio, fecha_cierre, total_productos) values (200, '14-12-2023', '17-10-2023', 11);
 
 --select count(*) from ADMIN_USUARIOS.subasta;
+--delete ADMIN_USUARIOS.subasta;
 
 --Tabla admin_usuarios.oferta
 
